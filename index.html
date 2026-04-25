@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostafa Hosny | Flutter Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Mostafa Hosny - Junior Flutter Developer متخصص في Flutter و Dart و State Management باستخدام BLoC و Provider وبناء تطبيقات عالية الأداء.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS Animate On Scroll Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        },
+                        neon: {
+                            blue: '#06b6d4',
+                            purple: '#8b5cf6',
+                            pink: '#ec4899',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="bg-dark-900 text-white font-sans antialiased overflow-x-hidden">
+    
+    <!-- ========================================== -->
+    <!-- NAVIGATION BAR -->
+    <!-- ========================================== -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="font-mono text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple hover:opacity-80 transition-opacity">
+                    &lt; Dev /&gt;
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link text-gray-300 hover:text-neon-blue transition-colors duration-300 text-sm font-medium uppercase tracking-wider">About</a>
+                    <a href="#skills" class="nav-link text-gray-300 hover:text-neon-blue transition-colors duration-300 text-sm font-medium uppercase tracking-wider">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-300 hover:text-neon-blue transition-colors duration-300 text-sm font-medium uppercase tracking-wider">Projects</a>
+                    <a href="#experience" class="nav-link text-gray-300 hover:text-neon-blue transition-colors duration-300 text-sm font-medium uppercase tracking-wider">Experience</a>
+                    <a href="#contact" class="nav-link px-5 py-2.5 rounded-full bg-gradient-to-r from-neon-blue to-neon-purple text-white font-medium text-sm hover:shadow-lg hover:shadow-neon-blue/30 transition-all duration-300 hover:-translate-y-0.5">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-dark-800/95 backdrop-blur-xl border-t border-gray-700/50">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#about" class="mobile-nav-link block px-3 py-3 rounded-lg text-gray-300 hover:text-neon-blue hover:bg-dark-700/50 transition-all">About</a>
+                <a href="#skills" class="mobile-nav-link block px-3 py-3 rounded-lg text-gray-300 hover:text-neon-blue hover:bg-dark-700/50 transition-all">Skills</a>
+                <a href="#projects" class="mobile-nav-link block px-3 py-3 rounded-lg text-gray-300 hover:text-neon-blue hover:bg-dark-700/50 transition-all">Projects</a>
+                <a href="#experience" class="mobile-nav-link block px-3 py-3 rounded-lg text-gray-300 hover:text-neon-blue hover:bg-dark-700/50 transition-all">Experience</a>
+                <a href="#contact" class="mobile-nav-link block px-3 py-3 rounded-lg text-neon-blue hover:bg-dark-700/50 transition-all">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================== -->
+    <!-- HERO SECTION -->
+    <!-- ========================================== -->
+    <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <!-- Background Decorations -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -top-40 -right-40 w-96 h-96 bg-neon-blue/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-neon-purple/10 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-neon-blue/5 to-neon-purple/5 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <p class="font-mono text-neon-blue mb-4 text-lg">Hi, I'm</p>
+                   <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">
+    Mostafa <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple">Hosny</span>
+</h1>
+                    <div class="h-14 mb-8">
+                        <span id="typing-text" class="text-xl md:text-2xl text-gray-400 font-mono"></span>
+                        <span class="animate-blink text-neon-blue">|</span>
+                    </div>
+         <p class="text-gray-400 text-lg mb-10 max-w-lg leading-relaxed">
+Junior Flutter Developer passionate about free apps using Flutter and Dart, with a focus on clean code, performance, and UI. I have experience with BLoC and API integration and love turning smart apps into real-world applications.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="group px-8 py-4 rounded-full bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold hover:shadow-xl hover:shadow-neon-blue/30 transition-all duration-300 hover:-translate-y-1 flex items-center gap-2">
+                            <i class="fas fa-file-alt"></i>
+                            Show CV
+                        </a>
+                        <a href="#projects" class="group px-8 py-4 rounded-full border-2 border-neon-blue/50 text-neon-blue font-semibold hover:bg-neon-blue/10 hover:border-neon-blue transition-all duration-300 hover:-translate-y-1 flex items-center gap-2">
+                            <i class="fas fa-rocket"></i>
+                            View My Work
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right Content - Profile Image with Glowing Border -->
+                <div data-aos="fade-left" data-aos-duration="1000" class="flex justify-center">
+                    <div class="relative">
+                        <!-- Rotating Glow Rings -->
+                        <div class="absolute inset-0 rounded-full border-2 border-neon-blue/30 animate-spin-slow" style="transform: scale(1.15);"></div>
+                        <div class="absolute inset-0 rounded-full border-2 border-neon-purple/30 animate-spin-reverse" style="transform: scale(1.25);"></div>
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-br from-neon-blue/20 to-neon-purple/20 blur-xl" style="transform: scale(1.3);"></div>
+                        
+                        <!-- Profile Image Container -->
+                        <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-dark-800 shadow-2xl shadow-neon-blue/20">
+                            <img src="./assets/images/profile.jpg" alt="Alex Dev - Flutter Developer" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-900/40 to-transparent"></div>
+                        </div>
+                        
+                        <!-- Floating Badges -->
+                        <div class="absolute -top-4 -right-4 bg-dark-800 border border-neon-blue/30 rounded-full px-4 py-2 shadow-lg animate-float">
+                            <span class="font-mono text-sm text-neon-blue"><i class="fab fa-flutter mr-1"></i>Flutter</span>
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 bg-dark-800 border border-neon-purple/30 rounded-full px-4 py-2 shadow-lg animate-float-delayed">
+                            <span class="font-mono text-sm text-neon-purple"><i class="fas fa-mobile-alt mr-1"></i>Mobile</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-gray-500 hover:text-neon-blue transition-colors">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ABOUT & SKILLS SECTION -->
+    <!-- ========================================== -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-sm font-mono text-neon-blue uppercase tracking-widest mb-3">Get To Know Me</h2>
+                <h3 class="text-4xl md:text-5xl font-bold">About Me</h3>
+                <div class="w-24 h-1 bg-gradient-to-r from-neon-blue to-neon-purple mx-auto mt-6 rounded-full"></div>
+            </div>
+            
+            <!-- About Content -->
+            <div class="max-w-3xl mx-auto text-center mb-16" data-aos="fade-up" data-aos-delay="100">
+            <p class="text-gray-400 text-lg leading-relaxed">
+    I'm a passionate <span class="text-neon-blue font-semibold">Junior Flutter Developer</span> with strong experience in building mobile applications using Flutter & Dart. I focus on applying Object-Oriented Programming (OOP) and clean architecture principles to build scalable apps.  
+    I have experience working with APIs, BLoC, and Provider, and I enjoy building real-world projects to improve my skills continuously.
+</p>
+            </div>
+            
+            <!-- Core Traits Cards -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+                <div class="trait-card group bg-dark-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-neon-blue/50 transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-14 h-14 rounded-xl bg-neon-blue/10 flex items-center justify-center mb-5 group-hover:bg-neon-blue/20 transition-colors">
+                        <i class="fas fa-mobile-alt text-2xl text-neon-blue"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Mobile First</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Designing with mobile users as the priority, ensuring responsive and adaptive layouts across all screen sizes.</p>
+                </div>
+                
+                <div class="trait-card group bg-dark-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-neon-purple/50 transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 rounded-xl bg-neon-purple/10 flex items-center justify-center mb-5 group-hover:bg-neon-purple/20 transition-colors">
+                        <i class="fas fa-code text-2xl text-neon-purple"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Clean Code</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Writing maintainable, well-documented code following best practices and established design patterns.</p>
+                </div>
+                
+                <div class="trait-card group bg-dark-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-neon-pink/50 transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 rounded-xl bg-neon-pink/10 flex items-center justify-center mb-5 group-hover:bg-neon-pink/20 transition-colors">
+                        <i class="fas fa-paint-brush text-2xl text-neon-pink"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">UI/UX Focus</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Creating intuitive interfaces with attention to micro-interactions, animations, and user-centered design.</p>
+                </div>
+                
+                <div class="trait-card group bg-dark-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-neon-blue/50 transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 rounded-xl bg-neon-blue/10 flex items-center justify-center mb-5 group-hover:bg-neon-blue/20 transition-colors">
+                        <i class="fas fa-tachometer-alt text-2xl text-neon-blue"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Performance</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Optimizing app performance with efficient state management, lazy loading, and smooth 60fps animations.</p>
+                </div>
+            </div>
+            
+            <!-- Skills Section -->
+            <div id="skills">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-sm font-mono text-neon-purple uppercase tracking-widest mb-3">My Tech Stack</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold">Skills & Technologies</h3>
+                    <div class="w-24 h-1 bg-gradient-to-r from-neon-purple to-neon-blue mx-auto mt-6 rounded-full"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Core Technologies -->
+                    <div class="skill-card bg-dark-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-neon-blue/50 transition-all duration-300" data-aos="fade-up" data-aos-delay="0">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-neon-blue/10 flex items-center justify-center">
+                                <i class="fas fa-star text-xl text-neon-blue"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">Core Technologies</h4>
+                                <p class="text-gray-500 text-sm">Primary development stack</p>
+
+                                
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-blue hover:text-neon-blue transition-all cursor-default">Dart</span>
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-blue hover:text-neon-blue transition-all cursor-default">Flutter</span>
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-blue hover:text-neon-blue transition-all cursor-default">Material UI</span>
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-blue hover:text-neon-blue transition-all cursor-default">Cupertino</span>
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-blue hover:text-neon-blue transition-all cursor-default">REST APIs</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Architecture -->
+                    <div class="skill-card bg-dark-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-neon-purple/50 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-neon-purple/10 flex items-center justify-center">
+                                <i class="fas fa-sitemap text-xl text-neon-purple"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">Architecture</h4>
+                                <p class="text-gray-500 text-sm">Code organization patterns</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-purple hover:text-neon-purple transition-all cursor-default">Clean Architecture</span>
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-purple hover:text-neon-purple transition-all cursor-default">MVVM</span>
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-purple hover:text-neon-purple transition-all cursor-default">MVC</span>
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-purple hover:text-neon-purple transition-all cursor-default">Repository Pattern</span>
+                        </div>
+                    </div>
+                    
+                    <!-- State Management -->
+                    <div class="skill-card bg-dark-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-neon-pink/50 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-neon-pink/10 flex items-center justify-center">
+                                <i class="fas fa-exchange-alt text-xl text-neon-pink"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">State Management</h4>
+                                <p class="text-gray-500 text-sm">App state handling solutions</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-pink hover:text-neon-pink transition-all cursor-default">BLoC (Cubit)</span>
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-pink hover:text-neon-pink transition-all cursor-default">Provider</span>
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-pink hover:text-neon-pink transition-all cursor-default">Basic GetX</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Backend & Tools -->
+                    <div class="skill-card bg-dark-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-neon-blue/50 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-neon-blue/10 flex items-center justify-center">
+                                <i class="fas fa-server text-xl text-neon-blue"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">Backend & Tools</h4>
+                                <p class="text-gray-500 text-sm">Services and development tools</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-blue hover:text-neon-blue transition-all cursor-default">HTTP</span>
+                                                        <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-blue hover:text-neon-blue transition-all cursor-default">Firebase</span>
+
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-blue hover:text-neon-blue transition-all cursor-default">Firestore</span>
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-blue hover:text-neon-blue transition-all cursor-default">Git</span>
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-blue hover:text-neon-blue transition-all cursor-default">GitHub</span>
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-blue hover:text-neon-blue transition-all cursor-default">Figma</span>
+                            <span class="skill-badge px-4 py-2 rounded-full bg-dark-700/50 border border-gray-600/50 text-sm font-mono text-gray-300 hover:border-neon-blue hover:text-neon-blue transition-all cursor-default">Postman</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- PROJECTS SECTION (CRITICAL - SPLIT SCREEN) -->
+    <!-- ========================================== -->
+    <section id="projects" class="py-24 relative bg-dark-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-sm font-mono text-neon-blue uppercase tracking-widest mb-3">My Portfolio</h2>
+                <h3 class="text-4xl md:text-5xl font-bold">Featured Projects</h3>
+                <div class="w-24 h-1 bg-gradient-to-r from-neon-blue to-neon-purple mx-auto mt-6 rounded-full"></div>
+            </div>
+            
+            <!-- Split Screen Layout -->
+            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 items-start">
+                
+                <!-- Left Side - Project List -->
+                <div class="w-full lg:w-1/2 lg:max-h-[700px] lg:overflow-y-auto lg:pr-4 custom-scrollbar" data-aos="fade-right">
+                    <div class="space-y-6" id="project-list">
+                        
+                        <!-- Project 1 -->
+                        <div class="project-card active bg-dark-800/80 backdrop-blur-sm border-2 border-neon-blue rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:-translate-y-1" data-project="0">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="text-xl font-bold text-white mb-1">Hyper Task</h4>
+                                    <p class="text-gray-400 text-sm"></p>
+                                </div>
+                                <div class="w-10 h-10 rounded-full bg-neon-blue/20 flex items-center justify-center">
+                                    <i class="fas fa-tasks text-neon-blue"></i>
+                                </div>
+                            </div>
+                            <p class="text-gray-400 text-sm mb-4 leading-relaxed">A productivity-focused task management app with Api , CRUD operations, categories, priorities, and deadline reminders.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs px-3 py-1 rounded-full bg-dark-700 text-neon-blue font-mono">Flutter</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-dark-700 text-neon-purple font-mono">Cubit</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-dark-700 text-neon-pink font-mono">Sql</span>
+                            </div>
+                            <button class="run-btn w-full py-3 rounded-xl bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold hover:shadow-lg hover:shadow-neon-blue/30 transition-all duration-300 flex items-center justify-center gap-2">
+                                <i class="fas fa-play text-sm"></i>
+                                Run / View App
+                            </button>
+                        </div>
+                        
+                        <!-- Project 2 -->
+                        <div class="project-card bg-dark-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-neon-purple/50" data-project="1">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="text-xl font-bold text-white mb-1">ShopEase</h4>
+                                    <p class="text-gray-400 text-sm">E-Commerce Platform</p>
+                                </div>
+                                <div class="w-10 h-10 rounded-full bg-neon-purple/20 flex items-center justify-center">
+                                    <i class="fas fa-shopping-bag text-neon-purple"></i>
+                                </div>
+                            </div>
+                            <p class="text-gray-400 text-sm mb-4 leading-relaxed">A modern e-commerce mobile app with product catalog, cart management, secure payments, and order tracking features.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs px-3 py-1 rounded-full bg-dark-700 text-neon-blue font-mono">Flutter</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-dark-700 text-neon-purple font-mono">Provider</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-dark-700 text-neon-pink font-mono">Stripe API</span>
+                            </div>
+                            <button class="run-btn w-full py-3 rounded-xl bg-dark-700 text-gray-300 font-semibold hover:bg-neon-purple/20 hover:text-neon-purple transition-all duration-300 flex items-center justify-center gap-2">
+                                <i class="fas fa-play text-sm"></i>
+                                Run / View App
+                            </button>
+                        </div>
+                        
+                        <!-- Project 3 -->
+                        <!-- <div class="project-card bg-dark-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-neon-pink/50" data-project="2">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="text-xl font-bold text-white mb-1">Weatherly</h4>
+                                    <p class="text-gray-400 text-sm">Smart Weather App</p>
+                                </div>
+                                <div class="w-10 h-10 rounded-full bg-neon-pink/20 flex items-center justify-center">
+                                    <i class="fas fa-cloud-sun text-neon-pink"></i>
+                                </div>
+                            </div>
+                            <p class="text-gray-400 text-sm mb-4 leading-relaxed">A beautiful weather application with real-time forecasts, animated weather icons, location-based alerts, and 7-day predictions.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs px-3 py-1 rounded-full bg-dark-700 text-neon-blue font-mono">Flutter</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-dark-700 text-neon-purple font-mono">Riverpod</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-dark-700 text-neon-pink font-mono">OpenWeather API</span>
+                            </div>
+                            <button class="run-btn w-full py-3 rounded-xl bg-dark-700 text-gray-300 font-semibold hover:bg-neon-pink/20 hover:text-neon-pink transition-all duration-300 flex items-center justify-center gap-2">
+                                <i class="fas fa-play text-sm"></i>
+                                Run / View App
+                            </button>
+                        </div> -->
+                        
+                        <!-- Project 4 -->
+                        <!-- <div class="project-card bg-dark-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:border-neon-blue/50" data-project="3">
+                            <div class="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 class="text-xl font-bold text-white mb-1">ChatConnect</h4>
+                                    <p class="text-gray-400 text-sm">Real-time Messaging</p>
+                                </div>
+                                <div class="w-10 h-10 rounded-full bg-neon-blue/20 flex items-center justify-center">
+                                    <i class="fas fa-comments text-neon-blue"></i>
+                                </div>
+                            </div>
+                            <p class="text-gray-400 text-sm mb-4 leading-relaxed">A real-time messaging app with group chats, file sharing, push notifications, and end-to-end encryption for secure conversations.</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="text-xs px-3 py-1 rounded-full bg-dark-700 text-neon-blue font-mono">Flutter</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-dark-700 text-neon-purple font-mono">Firebase</span>
+                                <span class="text-xs px-3 py-1 rounded-full bg-dark-700 text-neon-pink font-mono">WebSockets</span>
+                            </div>
+                            <button class="run-btn w-full py-3 rounded-xl bg-dark-700 text-gray-300 font-semibold hover:bg-neon-blue/20 hover:text-neon-blue transition-all duration-300 flex items-center justify-center gap-2">
+                                <i class="fas fa-play text-sm"></i>
+                                Run / View App
+                            </button>
+                        </div>
+                         -->
+                    </div>
+                </div>
+                
+                
+                <!-- Right Side - Mobile Device Mockup -->
+                <div class="w-full lg:w-1/2 flex justify-center lg:sticky lg:top-24" data-aos="fade-left">
+                    <div class="phone-mockup-wrapper">
+                        <!-- Phone Frame -->
+                        <div class="phone-frame">
+                            <!-- Notch -->
+                            <div class="phone-notch">
+                                <div class="phone-speaker"></div>
+                                <div class="phone-camera"></div>
+                            </div>
+                            
+                            <!-- Screen -->
+                            <div class="phone-screen">
+                                <!-- Status Bar -->
+                                <div class="status-bar">
+                                    <span class="status-time">9:41</span>
+                                    <div class="status-icons">
+                                        <i class="fas fa-signal"></i>
+                                        <i class="fas fa-wifi"></i>
+                                        <i class="fas fa-battery-full"></i>
+                                    </div>
+                                </div>
+                                
+                                <!-- App Content -->
+                                <div class="app-content">
+                                    <img id="mockup-image" src="./assets/images/project1.jpg" alt="App Screenshot" class="app-screenshot">
+                                    
+                                    <!-- App Overlay Info -->
+                                    <div class="app-overlay">
+                                        <div id="app-info" class="app-info-card">
+                                            <h5 id="app-name" class="font-bold text-lg">FitTrack Pro</h5>
+                                            <p id="app-desc" class="text-xs text-gray-300">Fitness & Workout Tracker</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Home Indicator -->
+                                <div class="home-indicator"></div>
+                            </div>
+                            
+                            <!-- Side Buttons -->
+                            <div class="phone-button phone-button-left phone-button-vol-up"></div>
+                            <div class="phone-button phone-button-left phone-button-vol-down"></div>
+                            <div class="phone-button phone-button-right phone-button-power"></div>
+                        </div>
+                        
+                        <!-- Reflection/Glow -->
+                        <div class="phone-glow"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- EXPERIENCE & EDUCATION TIMELINE -->
+    <!-- ========================================== -->
+    <section id="experience" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-sm font-mono text-neon-purple uppercase tracking-widest mb-3">My Journey</h2>
+                <h3 class="text-4xl md:text-5xl font-bold">Experience & Education</h3>
+                <div class="w-24 h-1 bg-gradient-to-r from-neon-purple to-neon-blue mx-auto mt-6 rounded-full"></div>
+            </div>
+            
+            <!-- Timeline -->
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-neon-blue via-neon-purple to-neon-blue md:-translate-x-1/2"></div>
+                
+                <!-- Timeline Items -->
+                <div class="space-y-12">
+                    
+                    <!-- Experience 1 -->
+                    <div class="timeline-item relative flex flex-col md:flex-row items-start" data-aos="fade-up" data-aos-delay="0">
+                        <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+                            <div class="bg-dark-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-neon-blue/50 transition-all duration-300">
+                                <span class="text-neon-blue font-mono text-sm">2025 — Present</span>
+                                <h4 class="text-xl font-bold mt-2 mb-2">Self-Employed Flutter Developer</h4>
+                                <p class="text-gray-400 text-sm mb-3">Self-Employed</p>
+                                <p class="text-gray-400 text-sm leading-relaxed">Building scalable personal projects and mastering API integration. Focused on creating production-ready Flutter applications with clean architecture and comprehensive testing..</p>
+                                <div class="flex flex-wrap gap-2 mt-3 md:justify-end">
+                                    <span class="text-xs px-2 py-1 rounded bg-dark-700 text-gray-300">Flutter</span>
+                                    <span class="text-xs px-2 py-1 rounded bg-dark-700 text-gray-300">Clean Architecture</span>
+                                    <span class="text-xs px-2 py-1 rounded bg-dark-700 text-gray-300">Firebase</span>
+                                    <span class="text-xs px-2 py-1 rounded bg-dark-700 text-gray-300">REST APIs</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Dot -->
+                        <div class="absolute left-4 md:left-1/2 top-6 w-4 h-4 rounded-full bg-neon-blue shadow-lg shadow-neon-blue/50 md:-translate-x-1/2 border-4 border-dark-900"></div>
+                        <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+                    </div>
+                    
+                    <!-- Experience 2 -->
+                    <div class="timeline-item relative flex flex-col md:flex-row items-start" data-aos="fade-up" data-aos-delay="100">
+                        <div class="md:w-1/2 md:pr-12 hidden md:block"></div>
+                        <!-- Dot -->
+                        <div class="absolute left-4 md:left-1/2 top-6 w-4 h-4 rounded-full bg-neon-purple shadow-lg shadow-neon-purple/50 md:-translate-x-1/2 border-4 border-dark-900"></div>
+                        <div class="md:w-1/2 md:pl-12 pl-12">
+                            <div class="bg-dark-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-neon-purple/50 transition-all duration-300">
+                                       <span class="text-neon-pink font-mono text-sm"> 2024 - Present</span>
+                                <h4 class="text-xl font-bold mt-2 mb-2">Faculty of Computers & Informatics</h4>
+                                <p class="text-gray-400 text-sm mb-3">Tanta University</p>
+                                <p class="text-gray-400 text-sm leading-relaxed">FCI TU — 2nd Year, Computer Science</p>
+                                <div class="flex flex-wrap gap-2 mt-3">
+                                    <span class="text-xs px-2 py-1 rounded bg-dark-700 text-gray-300">OOP</span>
+                                    <span class="text-xs px-2 py-1 rounded bg-dark-700 text-gray-300">Data Structures</span>
+                                    <span class="text-xs px-2 py-1 rounded bg-dark-700 text-gray-300">Algorithm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+      
+
+      
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- CONTACT SECTION -->
+    <!-- ========================================== -->
+    <section id="contact" class="py-24 relative bg-dark-800/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-sm font-mono text-neon-blue uppercase tracking-widest mb-3">Get In Touch</h2>
+                <h3 class="text-4xl md:text-5xl font-bold">Contact Me</h3>
+                <div class="w-24 h-1 bg-gradient-to-r from-neon-blue to-neon-purple mx-auto mt-6 rounded-full"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                
+                <!-- Left Side - Contact Info -->
+                <div data-aos="fade-right">
+                    <h4 class="text-3xl font-bold mb-4">Let's build something <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple">amazing</span> together!</h4>
+                    <p class="text-gray-400 mb-10 leading-relaxed">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out through any of the channels below.</p>
+                    
+                    <div class="space-y-6">
+                        <a href="mailto:alex.dev@example.com" class="contact-link group flex items-center gap-5 p-4 rounded-xl bg-dark-800/50 border border-gray-700/50 hover:border-neon-blue/50 transition-all duration-300">
+                            <div class="w-14 h-14 rounded-xl bg-neon-blue/10 flex items-center justify-center group-hover:bg-neon-blue/20 transition-colors">
+                                <i class="fas fa-envelope text-xl text-neon-blue"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 mb-1">Email</p>
+                                <p class="text-white font-medium group-hover:text-neon-blue transition-colors">mostafa7ossny@gmail.com</p>
+                            </div>
+                        </a>
+                        
+                        <a href="tel:+1234567890" class="contact-link group flex items-center gap-5 p-4 rounded-xl bg-dark-800/50 border border-gray-700/50 hover:border-neon-purple/50 transition-all duration-300">
+                            <div class="w-14 h-14 rounded-xl bg-neon-purple/10 flex items-center justify-center group-hover:bg-neon-purple/20 transition-colors">
+                                <i class="fas fa-phone text-xl text-neon-purple"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 mb-1">Phone</p>
+                                <p class="text-white font-medium group-hover:text-neon-purple transition-colors">+201062051171</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://github.com/Mostafa7ossny/" target="_blank" class="contact-link group flex items-center gap-5 p-4 rounded-xl bg-dark-800/50 border border-gray-700/50 hover:border-neon-pink/50 transition-all duration-300">
+                            <div class="w-14 h-14 rounded-xl bg-neon-pink/10 flex items-center justify-center group-hover:bg-neon-pink/20 transition-colors">
+                                <i class="fab fa-github text-xl text-neon-pink"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 mb-1">GitHub</p>
+                                <p class="text-white font-medium group-hover:text-neon-pink transition-colors">Github</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://www.linkedin.com/in/mostafa7ossny01/" target="_blank" class="contact-link group flex items-center gap-5 p-4 rounded-xl bg-dark-800/50 border border-gray-700/50 hover:border-neon-blue/50 transition-all duration-300">
+                            <div class="w-14 h-14 rounded-xl bg-neon-blue/10 flex items-center justify-center group-hover:bg-neon-blue/20 transition-colors">
+                                <i class="fab fa-linkedin text-xl text-neon-blue"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 mb-1">LinkedIn</p>
+                                <p class="text-white font-medium group-hover:text-neon-blue transition-colors">LinkedIn</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right Side - Contact Form -->
+                <div data-aos="fade-left">
+                    <form id="contact-form" class="bg-dark-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter Your Name" 
+                                class="w-full px-5 py-4 rounded-xl bg-dark-900/50 border border-gray-700/50 text-white placeholder-gray-500 focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue/50 transition-all duration-300">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Your Email</label>
+                            <input type="email" id="email" name="email" required placeholder="name@example.com" 
+                                class="w-full px-5 py-4 rounded-xl bg-dark-900/50 border border-gray-700/50 text-white placeholder-gray-500 focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue/50 transition-all duration-300">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Your Message</label>
+                            <textarea id="message" name="message" required rows="5" placeholder="Tell me about your project..." 
+                                class="w-full px-5 py-4 rounded-xl bg-dark-900/50 border border-gray-700/50 text-white placeholder-gray-500 focus:outline-none focus:border-neon-blue focus:ring-1 focus:ring-neon-blue/50 transition-all duration-300 resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-neon-blue to-neon-purple text-white font-semibold hover:shadow-xl hover:shadow-neon-blue/30 transition-all duration-300 hover:-translate-y-1 flex items-center justify-center gap-2">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- FOOTER -->
+    <!-- ========================================== -->
+    <footer class="py-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2024 <span class="text-neon-blue font-mono">&lt;Dev/&gt;</span>. All rights reserved.
+                </p>
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/Mostafa7ossny/" target="_blank" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-neon-blue hover:bg-dark-700 transition-all duration-300">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mostafa7ossny01/" target="_blank" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-neon-blue hover:bg-dark-700 transition-all duration-300">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <!-- <a href="https://twitter.com/alexdev" target="_blank" class="w-10 h-10 rounded-full bg-dark-800 flex items-center justify-center text-gray-400 hover:text-neon-blue hover:bg-dark-700 transition-all duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a> -->
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-8 right-8 bg-dark-800 border border-neon-blue/50 rounded-xl px-6 py-4 shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center gap-3">
+        <i class="fas fa-check-circle text-neon-blue text-xl"></i>
+        <span id="toast-message" class="text-white font-medium">Message sent successfully!</span>
+    </div>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Main JavaScript -->
+    <script src="./js/main.js"></script>
+</body>
+</html>

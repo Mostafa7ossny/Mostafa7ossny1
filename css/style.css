@@ -1,0 +1,538 @@
+/* ========================================== */
+/* CUSTOM STYLES - Developer Portfolio      */
+/* ========================================== */
+
+/* ----- Scrollbar Styles ----- */
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #06b6d4;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #8b5cf6;
+}
+
+/* ----- Navigation Glass Morphism ----- */
+#navbar {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+#navbar.scrolled {
+    background: rgba(15, 23, 42, 0.9);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Nav link active state */
+.nav-link.active {
+    color: #06b6d4;
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #06b6d4, #8b5cf6);
+    border-radius: 1px;
+}
+
+/* ----- Blinking Cursor for Typing ----- */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.animate-blink {
+    animation: blink 1s step-end infinite;
+}
+
+/* ----- Spinning Animations for Profile ----- */
+@keyframes spin-slow {
+    from { transform: scale(1.15) rotate(0deg); }
+    to { transform: scale(1.15) rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+    from { transform: scale(1.25) rotate(360deg); }
+    to { transform: scale(1.25) rotate(0deg); }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 15s linear infinite;
+}
+
+.animate-spin-reverse {
+    animation: spin-reverse 20s linear infinite;
+}
+
+/* ----- Floating Animation ----- */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes float-delayed {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+    animation: float-delayed 4s ease-in-out infinite;
+    animation-delay: 1.5s;
+}
+
+/* ========================================== */
+/* MOBILE PHONE MOCKUP STYLES               */
+/* ========================================== */
+
+.phone-mockup-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.phone-frame {
+    width: 300px;
+    height: 620px;
+    background: #1a1a2e;
+    border-radius: 48px;
+    padding: 12px;
+    position: relative;
+    box-shadow: 
+        0 0 0 3px #2d2d44,
+        0 0 0 6px #1a1a2e,
+        0 25px 80px rgba(0, 0, 0, 0.6),
+        0 0 60px rgba(6, 182, 212, 0.15);
+    transition: all 0.4s ease;
+}
+
+.phone-frame:hover {
+    box-shadow: 
+        0 0 0 3px #2d2d44,
+        0 0 0 6px #1a1a2e,
+        0 25px 80px rgba(0, 0, 0, 0.6),
+        0 0 80px rgba(139, 92, 246, 0.25);
+    transform: translateY(-5px);
+}
+
+/* Phone Notch */
+.phone-notch {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 32px;
+    background: #1a1a2e;
+    border-radius: 0 0 20px 20px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.phone-speaker {
+    width: 50px;
+    height: 4px;
+    background: #2d2d44;
+    border-radius: 2px;
+}
+
+.phone-camera {
+    width: 10px;
+    height: 10px;
+    background: #0d1b2a;
+    border-radius: 50%;
+    border: 1.5px solid #1a3a5c;
+    position: relative;
+}
+
+.phone-camera::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 3px;
+    height: 3px;
+    background: #1a5276;
+    border-radius: 50%;
+}
+
+/* Phone Screen */
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: #0f0f23;
+    border-radius: 38px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Status Bar */
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 24px 4px;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 5;
+    background: transparent;
+}
+
+.status-time {
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.status-icons {
+    display: flex;
+    gap: 5px;
+    font-size: 10px;
+}
+
+/* App Content Area */
+.app-content {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.app-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* App Overlay with project info */
+.app-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 16px;
+    right: 16px;
+    z-index: 10;
+}
+
+.app-info-card {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    border-radius: 16px;
+    padding: 12px 16px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.phone-frame:hover .app-info-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Home Indicator */
+.home-indicator {
+    width: 120px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    margin: 8px auto 12px;
+    z-index: 5;
+}
+
+/* Side Buttons */
+.phone-button {
+    position: absolute;
+    background: #2d2d44;
+    border-radius: 2px;
+}
+
+.phone-button-left {
+    left: -3px;
+    border-radius: 2px 0 0 2px;
+}
+
+.phone-button-right {
+    right: -3px;
+    border-radius: 0 2px 2px 0;
+}
+
+.phone-button-vol-up {
+    width: 3px;
+    height: 28px;
+    top: 100px;
+}
+
+.phone-button-vol-down {
+    width: 3px;
+    height: 28px;
+    top: 140px;
+}
+
+.phone-button-power {
+    width: 3px;
+    height: 40px;
+    top: 110px;
+}
+
+/* Phone Glow Effect */
+.phone-glow {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+}
+
+/* Project Card Active State */
+.project-card.active {
+    background: rgba(30, 41, 59, 0.9) !important;
+    border-color: #06b6d4 !important;
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.15);
+}
+
+.project-card.active .run-btn {
+    background: linear-gradient(to right, #06b6d4, #8b5cf6) !important;
+    color: white !important;
+}
+
+/* Screen transition animation */
+.screen-fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.screen-fade-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ========================================== */
+/* TIMELINE STYLES                          */
+/* ========================================== */
+
+.timeline-item {
+    position: relative;
+}
+
+/* Responsive adjustments for timeline dots */
+@media (max-width: 768px) {
+    .timeline-item > div:first-child,
+    .timeline-item > div:last-child {
+        width: 100%;
+        padding-left: 48px;
+        padding-right: 0;
+        text-align: left !important;
+    }
+    
+    .timeline-item .absolute.left-4 {
+        left: 16px !important;
+    }
+}
+
+/* ========================================== */
+/* TOAST NOTIFICATION                       */
+/* ========================================== */
+
+#toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ========================================== */
+/* SKILL BADGE HOVER EFFECTS                */
+/* ========================================== */
+
+.skill-badge {
+    transition: all 0.3s ease;
+}
+
+.skill-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================== */
+/* TRAIT CARD HOVER GLOW                  */
+/* ========================================== */
+
+.trait-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.trait-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.03), transparent);
+    transition: left 0.5s ease;
+}
+
+.trait-card:hover::before {
+    left: 100%;
+}
+
+/* ========================================== */
+/* CONTACT LINK STYLES                      */
+/* ========================================== */
+
+.contact-link:hover {
+    transform: translateX(5px);
+}
+
+/* ========================================== */
+/* FORM INPUT FOCUS STYLES                  */
+/* ========================================== */
+
+input:focus, textarea:focus {
+    background: rgba(15, 23, 42, 0.8) !important;
+}
+
+/* ========================================== */
+/* MOBILE MENU STYLES                       */
+/* ========================================== */
+
+#mobile-menu {
+    transition: all 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+}
+
+#mobile-menu:not(.hidden) {
+    max-height: 400px;
+}
+
+/* ========================================== */
+/* RESPONSIVE MOBILE MOCKUP                 */
+/* ========================================== */
+
+@media (max-width: 1024px) {
+    .phone-frame {
+        width: 260px;
+        height: 540px;
+        border-radius: 40px;
+    }
+    
+    .phone-screen {
+        border-radius: 32px;
+    }
+    
+    .phone-notch {
+        width: 120px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 640px) {
+    .phone-frame {
+        width: 220px;
+        height: 460px;
+        border-radius: 36px;
+    }
+    
+    .phone-screen {
+        border-radius: 28px;
+    }
+    
+    .phone-notch {
+        width: 100px;
+        height: 24px;
+    }
+    
+    .status-bar {
+        padding: 8px 16px 2px;
+        font-size: 10px;
+    }
+    
+    .home-indicator {
+        width: 100px;
+        height: 4px;
+    }
+}
+
+/* ========================================== */
+/* SCROLL REVEAL BASE STYLES              */
+/* ========================================== */
+
+[data-aos] {
+    pointer-events: auto;
+}
+
+/* Smooth section transitions */
+section {
+    position: relative;
+}
+
+/* Button hover lift effect */
+a, button {
+    transition: all 0.3s ease;
+}
+
+/* Selection color */
+::selection {
+    background: rgba(6, 182, 212, 0.3);
+    color: white;
+}
+
+/* Focus visible for accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 2px solid #06b6d4;
+    outline-offset: 2px;
+}
